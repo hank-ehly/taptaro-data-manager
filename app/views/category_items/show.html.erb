@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Romaji:</strong>
+  <%= @category_item.romaji %>
+</p>
+
+<p>
+  <strong>Kana:</strong>
+  <%= @category_item.kana %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @category_item.title %>
+</p>
+
+<p>
+  <strong>Category Title:</strong>
+  <%= @category_item.category.title %>
+</p>
+
+<%= link_to 'Edit', edit_category_category_item_path(@category_item.category.id, @category_item.id) %> |
+<%= link_to 'Back', categories_path %>
