@@ -12,10 +12,9 @@
   <% end %>
 
   <div class="field form-group">
-    <%= f.label :title %><br>
-    <%= f.text_field :title, { class: 'form-control' } %>
+    <%= f.text_field :title, { class: 'form-control', placeholder: 'Title' } %>
   </div>
   <div class="actions form-group">
-    <%= f.submit 'Create Category', { class: 'btn btn-primary' } %>
+    <%= f.submit nil, { class: 'btn btn-primary' } %>
   </div>
 <% end %>

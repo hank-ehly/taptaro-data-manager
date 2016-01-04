@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :category_items
   end
 
-  get 'csv' => 'categories#csv'
+  get 'export' => 'application#export_csv'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
