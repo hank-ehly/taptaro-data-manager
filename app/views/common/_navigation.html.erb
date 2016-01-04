@@ -10,7 +10,7 @@
       <% unless current_admin.nil? %>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <%= link_to destroy_admin_session_path %>
+              <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
             </li>
           </ul>
       <% end %>
