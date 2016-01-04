@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
+  devise_for :admins
+
   resources :categories do
     resources :category_items
   end
