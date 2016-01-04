@@ -39,8 +39,11 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category.destroy
-    flash[:success] = "Category was successfully destroyed."
+    if @category.destroy
+      flash[:success] = "Category was successfully destroyed."
+    else
+      flash[:danger] = @category.errors.first[1]
+    end
     redirect_to categories_url
   end
 
