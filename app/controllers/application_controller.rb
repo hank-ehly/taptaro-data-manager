@@ -1,5 +1,15 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  def export_csv(target=nil)
+    case target
+      when 'categories'
+        send_data Category.all.to_csv
+      when 'category_items'
+        send_data CategoryItem.all.to_csv
+      else
+        render categories_path, danger: "Could not export to CSV"
+    end unless target.nil?
+  end
+
 end
