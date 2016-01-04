@@ -14,6 +14,9 @@
 class CategoryItem < ActiveRecord::Base
   belongs_to :category
 
+  # mount_uploader :audio_clip, AudioClipUploader
+  # TODO: Add 'audio_clip' property to CategoryItem class
+
   validates :romaji, presence: true, length: {maximum: 25}
   validates :kana, presence: true, length: {maximum: 25}
   validates :title, presence: true, length: {maximum: 25}
