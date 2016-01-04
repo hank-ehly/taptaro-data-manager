@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   def export_csv()
     target = params[:target]
+
     case target
       when 'categories'
         send_data Category.all.to_csv
