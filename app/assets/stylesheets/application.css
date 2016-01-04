@@ -15,7 +15,9 @@
  /= require 'bootstrap.min'
  */
 
-input[type='text'] {
+input[type='text'],
+input[type='email'],
+input[type='password'] {
     max-width: 300px;
 }
 

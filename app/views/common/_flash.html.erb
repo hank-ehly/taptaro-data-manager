@@ -1,6 +1,6 @@
 <% flash.each do |key, val| %>
     <div class="container">
-      <div class="alert alert-<%= key %> fade in" role="alert">
+      <div class="alert alert-<%= ApplicationHelper::typeOfAlertForKey(key) %>">
         <%= val %>
       </div>
     </div>
