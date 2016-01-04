@@ -28,6 +28,11 @@
       <%= f.text_field :romaji, {class: 'form-control'} %>
     </div>
 
+    <div class="field form-group">
+      <%= f.label :audio_clip %><br>
+      <%= f.file_field :audio_clip %>
+    </div>
+
     <div class="actions form-group">
       <%= f.submit nil, { class: 'btn btn-primary' } %>
     </div>
