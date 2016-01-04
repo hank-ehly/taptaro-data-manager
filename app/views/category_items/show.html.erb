@@ -18,5 +18,11 @@
   <%= @category_item.category.title %>
 </p>
 
+<p>
+  <strong>Audio Clip</strong>
+  <!-- TODO: Preview audio -->
+  <%= audio_url @category_item.audio_clip %>
+</p>
+
 <%= link_to 'Edit', edit_category_category_item_path(@category_item.category.id, @category_item.id) %> |
 <%= link_to 'Back', categories_path %>
