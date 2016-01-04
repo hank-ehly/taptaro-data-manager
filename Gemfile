@@ -10,6 +10,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'annotate'
 gem 'jquery-rails'
+gem 'carrierwave'
 
 group :development do
   gem 'capistrano-rails'
