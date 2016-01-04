@@ -16,7 +16,7 @@
 
   <%= yield %>
 
-  <%= render 'common/export' %>
+  <%= render 'common/export' unless current_admin.nil? %>
 
 </div>
 
