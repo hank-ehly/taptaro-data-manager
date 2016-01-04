@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin!
 
   def export_csv()
     target = params[:target]
@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
       else
         flash[:danger] = "Could not export to CSV"
     end unless target.nil?
+
   end
 
 end
