@@ -9,13 +9,13 @@
 #  category_id :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  audio_clip  :string
 #
 
 class CategoryItem < ActiveRecord::Base
   belongs_to :category
 
-  # mount_uploader :audio_clip, AudioClipUploader
-  # TODO: Add 'audio_clip' property to CategoryItem class
+  mount_uploader :audio_clip, AudioClipUploader
 
   validates :romaji, presence: true, length: {maximum: 25}
   validates :kana, presence: true, length: {maximum: 25}
