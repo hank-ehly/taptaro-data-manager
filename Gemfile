@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'annotate'
+gem 'jquery-rails'
 
 group :development do
   gem 'capistrano-rails'
