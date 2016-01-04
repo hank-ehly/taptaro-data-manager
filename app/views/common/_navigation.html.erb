@@ -7,9 +7,13 @@
         </a>
       </div>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="">Login</a></li>
-      </ul>
+      <% unless current_admin.nil? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to destroy_admin_session_path %>
+            </li>
+          </ul>
+      <% end %>
 
     </div>
 

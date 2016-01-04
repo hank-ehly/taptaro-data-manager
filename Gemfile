@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
+gem 'annotate'
 
 group :development do
   gem 'capistrano-rails'
