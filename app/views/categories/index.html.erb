@@ -5,14 +5,15 @@
 <table class="table">
   <thead>
   <tr>
-    <th>Title</th>
+    <th>Title (no. items)</th>
     <th>Options</th>
+    <th></th>
   </tr>
   </thead>
   <tbody>
   <% @categories.each do |category| %>
       <tr>
-        <td><%= link_to category.title, category %></td>
+        <td><%= link_to category.title + ' (' + category.category_items.count.to_s + ')', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
