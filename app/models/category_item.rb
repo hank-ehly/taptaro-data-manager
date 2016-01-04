@@ -21,6 +21,9 @@ class CategoryItem < ActiveRecord::Base
   validates :kana, presence: true, length: {maximum: 25}
   validates :title, presence: true, length: {maximum: 25}
 
+  # TODO: Validate that the audio_clip name is the same as the title upon update / save
+  # TODO: Delete appropriate file upon deletion of record
+
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
       all.each do |category_item|
