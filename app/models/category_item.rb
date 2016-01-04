@@ -3,7 +3,6 @@ class CategoryItem < ActiveRecord::Base
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
-      csv << column_names
       all.each do |category_item|
         csv << category_item.attributes.values_at(*column_names)
       end
