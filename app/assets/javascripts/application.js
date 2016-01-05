@@ -14,3 +14,32 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('ready page:load', function () {
+
+    var clip = document.getElementById('audio_clip');
+    var btn = $('#play_button');
+
+    btn.on('click', function() {
+       if (clip) {
+           clip.play()
+       }
+    });
+
+    clip.onplaying = function(e) {
+        clip.enabled(false);
+    };
+
+    clip.onended = function(e) {
+        clip.enabled(true);
+    };
+
+    clip.enabled = function(enabled) {
+        $(clip).prop('disabled', !enabled);
+    };
+
+    function log(x) {
+        console.log(x);
+    }
+
+});

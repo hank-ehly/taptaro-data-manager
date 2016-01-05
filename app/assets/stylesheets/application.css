@@ -25,3 +25,11 @@ input[type='password'] {
     max-width: 30px;
     margin-top: 4px;
 }
+
+img#play_button {
+    width: 20px;
+}
+
+img#play_button:hover {
+    cursor: pointer;
+}
