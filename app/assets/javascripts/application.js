@@ -17,29 +17,25 @@
 
 $(document).on('page:load', function () {
 
-    var clip = document.getElementById('audio_clip');
-    var btn = $('#play_button');
+    var audio_clip = document.getElementById('audio_clip');
+    var play_icon = $('#play_icon');
 
-    btn.on('click', function() {
-       if (clip) {
-           clip.play()
+    play_icon.on('click', function() {
+       if (audio_clip) {
+           audio_clip.play()
        }
     });
 
-    clip.onplaying = function(e) {
-        clip.enabled(false);
+    audio_clip.onplaying = function(e) {
+        audio_clip.enabled(false);
     };
 
-    clip.onended = function(e) {
-        clip.enabled(true);
+    audio_clip.onended = function(e) {
+        audio_clip.enabled(true);
     };
 
-    clip.enabled = function(shouldEnable) {
-        $(clip).prop('disabled', !shouldEnable);
+    audio_clip.enabled = function(shouldEnable) {
+        $(audio_clip).prop('disabled', !shouldEnable);
     };
-
-    function log(x) {
-        console.log(x);
-    }
 
 });

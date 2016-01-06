@@ -20,15 +20,16 @@
 
 <p>
   <strong>Audio Clip</strong>
-  <%= image_tag 'play_button.png', :id => 'play_button' %>
-  <audio id="audio_clip" src="<%= @category_item.audio_clip %>"></audio>
+  <% if @category_item.audio_clip.blank? %>
+      No audio clip provided.
+  <% else %>
+      <%= image_tag 'play_icon.png', :id => 'play_icon' %>
+      <audio id="audio_clip" src="<%= @category_item.audio_clip %>">
+        Your computer does not support audio playback.
+      </audio>
+
+  <% end %>
 </p>
-
-
-
-<!-- TODO: Preview audio -->
-
-
 
 <%= link_to 'Edit', edit_category_category_item_path(@category_item.category.id, @category_item.id) %> |
 <%= link_to 'Back', categories_path %>

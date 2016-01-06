@@ -26,10 +26,10 @@ input[type='password'] {
     margin-top: 4px;
 }
 
-img#play_button {
+img#play_icon {
     width: 20px;
 }
 
-img#play_button:hover {
+img#play_icon:hover {
     cursor: pointer;
 }
