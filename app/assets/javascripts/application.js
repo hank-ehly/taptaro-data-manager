@@ -15,7 +15,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('ready page:load', function () {
+$(document).on('page:load', function () {
 
     var clip = document.getElementById('audio_clip');
     var btn = $('#play_button');
@@ -34,8 +34,8 @@ $(document).on('ready page:load', function () {
         clip.enabled(true);
     };
 
-    clip.enabled = function(enabled) {
-        $(clip).prop('disabled', !enabled);
+    clip.enabled = function(shouldEnable) {
+        $(clip).prop('disabled', !shouldEnable);
     };
 
     function log(x) {
