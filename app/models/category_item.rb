@@ -17,12 +17,10 @@ class CategoryItem < ActiveRecord::Base
 
   mount_uploader :audio_clip, AudioClipUploader
 
-  validates :romaji, presence: true, length: {maximum: 25}
-  validates :kana, presence: true, length: {maximum: 25}
-  validates :title, presence: true, length: {maximum: 25}
-
-  # TODO: Validate that the audio_clip name is the same as the title upon update / save
-  # TODO: Delete appropriate file upon deletion of record
+  validates :romaji, presence: true, length: { maximum: 25 }
+  validates :kana, presence: true, length: { maximum: 25 }
+  validates :title, presence: true, length: { maximum: 25 }
+  validates :audio_clip, presence: true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

@@ -14,7 +14,7 @@
 </p>
 
 <p>
-  <strong>In category:</strong>
+  <strong>Parent category:</strong>
   <%= @category_item.category.title %>
 </p>
 
@@ -26,8 +26,7 @@
       <%= image_tag 'play_icon.png', :id => 'play_icon' %>
       <audio id="audio_clip" src="<%= @category_item.audio_clip %>">
         Your computer does not support audio playback.
-      </audio>
-
+      </audio> <%= @category_item.audio_clip.filename %>
   <% end %>
 </p>
 
