@@ -1,6 +1,6 @@
 <% flash.each do |key, val| %>
     <div class="container">
-      <div class="alert alert-<%= ApplicationHelper::infer_alert_class_by_flash_key(key) %>">
+      <div class="alert alert-<%= infer_alert_class_by_flash_key(key) %>">
         <%= val %>
       </div>
     </div>
