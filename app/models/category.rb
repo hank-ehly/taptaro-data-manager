@@ -13,4 +13,13 @@ class Category < ActiveRecord::Base
 
   validates :title, presence: true, length: { maximum: 25 }
 
+  def self.to_csv(options = {})
+    CSV.generate(options) do |csv|
+      csv << column_names
+      all.each do |category|
+        csv << category.attributes.values_at(*column_names)
+      end
+    end
+  end
+
 end
