@@ -23,7 +23,7 @@ class CategoryItemsController < ApplicationController
       flash[:success] = 'Category item was successfully created.'
       redirect_to @category
     else
-      render :new, notice: @category_item.errors
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class CategoryItemsController < ApplicationController
       flash[:success] = 'Category item was successfully updated.'
       redirect_to @category
     else
-      render :edit, notice: @category_item.errors
+      render :edit
     end
   end
 
