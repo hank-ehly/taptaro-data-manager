@@ -22,12 +22,4 @@ class CategoryItem < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 25 }
   validates :audio_clip, presence: true
 
-  def self.to_csv(options = {})
-    CSV.generate(options) do |csv|
-      all.each do |category_item|
-        csv << category_item.attributes.values_at(*column_names)
-      end
-    end
-  end
-
 end
