@@ -9,9 +9,8 @@
 
       <% unless current_admin.nil? %>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              <%= link_to 'Logout', destroy_admin_session_path, method: :delete %>
-            </li>
+            <li><%= link_to 'Output Files', output_path, 'data-confirm' => 'Press \'OK\' to output latest taptaro files.' %></li>
+            <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
           </ul>
       <% end %>
 
