@@ -18,17 +18,27 @@
     </div>
 
     <div class="form-group">
-      <%= f.label 'Current audio clip' %>
-      <%= render 'audio_playback' %>
+      <%= f.label 'Current female audio clip' %>
+      <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.female_audio_clip, gender: "female" } %>
     </div>
 
     <div class="form-group">
-      <%= f.label :audio_clip %><br>
-      <%= f.file_field :audio_clip, { tabindex: 4 } %>
+      <%= f.label :female_audio_clip %><br>
+      <%= f.file_field :female_audio_clip, { tabindex: 4 } %>
     </div>
 
     <div class="form-group">
-      <%= f.submit nil, { class: 'btn btn-primary', tabindex: 5 } %>
+      <%= f.label 'Current male audio clip' %>
+      <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.male_audio_clip, gender: "male" } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :male_audio_clip %><br>
+      <%= f.file_field :male_audio_clip, { tabindex: 5 } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit nil, { class: 'btn btn-primary', tabindex: 6 } %>
     </div>
 
 <% end %>

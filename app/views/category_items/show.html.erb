@@ -19,8 +19,13 @@
 </p>
 
 <p>
-  <strong>Audio Clip</strong>
-  <%= render('audio_playback') %>
+  <strong>Female Audio Clip</strong>
+  <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.female_audio_clip, gender: "female" } %>
+</p>
+
+<p>
+  <strong>Male Audio Clip</strong>
+  <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.male_audio_clip, gender: "male" } %>
 </p>
 
 <%= link_to 'Edit', edit_category_category_item_path(@category_item.category.id, @category_item.id) %> |
