@@ -53,7 +53,7 @@ class CategoryItemsController < ApplicationController
   end
 
   def category_item_params
-    params.require(:category_item).permit(:romaji, :kana, :title, :category_id, :audio_clip)
+    params.require(:category_item).permit(:romaji, :kana, :title, :category_id, :female_audio_clip, :male_audio_clip)
   end
 
 end

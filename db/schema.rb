@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104032919) do
+ActiveRecord::Schema.define(version: 20160111185709) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -42,9 +42,10 @@ ActiveRecord::Schema.define(version: 20160104032919) do
     t.string   "kana"
     t.string   "title"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "audio_clip"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "female_audio_clip"
+    t.string   "male_audio_clip"
   end
 
   add_index "category_items", ["category_id"], name: "index_category_items_on_category_id"

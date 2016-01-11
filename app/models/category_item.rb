@@ -15,12 +15,12 @@
 class CategoryItem < ActiveRecord::Base
   belongs_to :category
 
-  mount_uploader :audio_clip, AudioClipUploader
+  mount_uploader :female_audio_clip, FemaleAudioClipUploader
+  mount_uploader :male_audio_clip, MaleAudioClipUploader
 
   validates :romaji, presence: true, length: { maximum: 25 }
   validates :kana, presence: true, length: { maximum: 25 }
   validates :title, presence: true, length: { maximum: 25 }
-  validates :audio_clip, presence: true
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

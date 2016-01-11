@@ -8,20 +8,27 @@ module FileOutputHelper
     copy_audio_clips
   end
 
+  def copy_audio_clips
+    copy_female_audio_clips
+    copy_male_audio_clips
+  end
+
   def create_root_dir
     dir_name = create_root_dir_name
     dir_path = create_root_dir_path(dir_name)
     Dir.mkdir(dir_path, 0755) unless Dir.exist?(dir_path)
   end
 
-  def copy_audio_clips
-    src = get_audio_clips_dir_path
+  def copy_female_audio_clips
+    src = Rails.root.join('public', 'uploads', 'female_audio_clip')
     dest = get_root_dir_path
     FileUtils.cp_r(src, dest)
   end
 
-  def get_audio_clips_dir_path
-    Rails.root.join('public', 'uploads', 'audio_clip')
+  def copy_male_audio_clips
+    src = Rails.root.join('public', 'uploads', 'male_audio_clip')
+    dest = get_root_dir_path
+    FileUtils.cp_r(src, dest)
   end
 
   def output_categories
