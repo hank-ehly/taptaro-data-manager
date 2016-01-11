@@ -26,10 +26,12 @@ input[type='password'] {
     margin-top: 4px;
 }
 
-img#play_icon {
+img#female_play_icon,
+img#male_play_icon {
     width: 20px;
 }
 
-img#play_icon:hover {
+img#female_play_icon:hover,
+img#male_play_icon:hover {
     cursor: pointer;
 }

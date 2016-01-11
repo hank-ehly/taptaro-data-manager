@@ -17,25 +17,51 @@
 
 $(document).on('page:load', function () {
 
-    var audio_clip = document.getElementById('audio_clip');
-    var play_icon = $('#play_icon');
+    // Female
 
-    play_icon.on('click', function() {
-       if (audio_clip) {
-           audio_clip.play()
+    var female_audio_clip = document.getElementById('female_audio_clip');
+    var female_play_icon = $('#female_play_icon');
+
+    female_play_icon.on('click', function() {
+       if (female_audio_clip) {
+           female_audio_clip.play()
        }
     });
 
-    audio_clip.onplaying = function(e) {
-        audio_clip.enabled(false);
+    female_audio_clip.onplaying = function(e) {
+        female_audio_clip.enabled(false);
     };
 
-    audio_clip.onended = function(e) {
-        audio_clip.enabled(true);
+    female_audio_clip.onended = function(e) {
+        female_audio_clip.enabled(true);
     };
 
-    audio_clip.enabled = function(shouldEnable) {
-        $(audio_clip).prop('disabled', !shouldEnable);
+    female_audio_clip.enabled = function(shouldEnable) {
+        $(female_audio_clip).prop('disabled', !shouldEnable);
+    };
+
+
+    // Male
+
+    var male_audio_clip = document.getElementById('male_audio_clip');
+    var male_play_icon = $('#male_play_icon');
+
+    male_play_icon.on('click', function() {
+        if (male_audio_clip) {
+            male_audio_clip.play()
+        }
+    });
+
+    male_audio_clip.onplaying = function(e) {
+        male_audio_clip.enabled(false);
+    };
+
+    male_audio_clip.onended = function(e) {
+        male_audio_clip.enabled(true);
+    };
+
+    male_audio_clip.enabled = function(shouldEnable) {
+        $(male_audio_clip).prop('disabled', !shouldEnable);
     };
 
 });

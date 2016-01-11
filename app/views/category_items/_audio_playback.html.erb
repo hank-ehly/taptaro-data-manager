@@ -1,15 +1,8 @@
-<% if @category_item.audio_clip.blank? %>
-
+<% if audio_clip.blank? %>
     (No registered audio clip is available)
-
 <% else %>
-
-    <%= image_tag 'play_icon.png', :id => 'play_icon' %>
-
-    <audio id="audio_clip" src="<%= @category_item.audio_clip %>">
-
+    <%= image_tag 'play_icon.png', :id => "#{gender}_play_icon" %>
+    <audio id=<%= "#{gender}_audio_clip" %> src="<%= audio_clip %>">
       Your computer does not support audio playback.
-
     </audio>
-
 <% end %>
