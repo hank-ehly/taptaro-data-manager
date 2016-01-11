@@ -6,6 +6,14 @@ module FileOutputHelper
     output_categories
     output_category_items
     copy_audio_clips
+    scp_files_to_local
+  end
+
+  def scp_files_to_local(host="", username="", password="", dest="")
+    Net::SCP.start(host, username, password: password) do |scp|
+      root_dir = get_root_dir_path
+      scp.download(root_dir, dest)
+    end
   end
 
   def copy_audio_clips
