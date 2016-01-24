@@ -6,7 +6,7 @@ module FileOutputHelper
     output_categories
     output_category_items
     copy_audio_clips
-    scp_files_to_local
+    # scp_files_to_local
   end
 
   def scp_files_to_local(host="", username="", password="", dest="")
@@ -18,7 +18,9 @@ module FileOutputHelper
 
   def copy_audio_clips
     copy_female_audio_clips
+    copy_slow_female_audio_clips
     copy_male_audio_clips
+    copy_slow_male_audio_clips
   end
 
   def create_root_dir
@@ -28,6 +30,12 @@ module FileOutputHelper
   end
 
   def copy_female_audio_clips
+    src = Rails.root.join('public', 'uploads', 'slow_female_audio_clip')
+    dest = get_root_dir_path
+    FileUtils.cp_r(src, dest)
+  end
+
+  def copy_slow_female_audio_clips
     src = Rails.root.join('public', 'uploads', 'female_audio_clip')
     dest = get_root_dir_path
     FileUtils.cp_r(src, dest)
@@ -35,6 +43,12 @@ module FileOutputHelper
 
   def copy_male_audio_clips
     src = Rails.root.join('public', 'uploads', 'male_audio_clip')
+    dest = get_root_dir_path
+    FileUtils.cp_r(src, dest)
+  end
+
+  def copy_slow_male_audio_clips
+    src = Rails.root.join('public', 'uploads', 'slow_male_audio_clip')
     dest = get_root_dir_path
     FileUtils.cp_r(src, dest)
   end
