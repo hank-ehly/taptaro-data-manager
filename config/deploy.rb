@@ -23,8 +23,7 @@ set :deploy_to, '/var/www/html/taptaro_data_manager'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml',
-                                                 'config/secrets.yml',
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml',
                                                  'config/initializers/secret_token.rb')
 
 # Default value for linked_dirs is []
