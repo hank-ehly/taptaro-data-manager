@@ -12,6 +12,7 @@ gem 'devise'
 gem 'annotate'
 gem 'jquery-rails'
 gem 'carrierwave'
+gem 'rubyzip'
 
 group :development do
   gem 'capistrano-rails'
