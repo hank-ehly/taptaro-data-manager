@@ -19,7 +19,10 @@
 
     <div class="form-group">
       <%= f.label 'Current female audio clip' %>
-      <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.female_audio_clip, gender: "female" } %>
+      <%= render partial: 'audio_playback',
+                 locals: { audio_clip: { audio_data: @category_item.female_audio_clip,
+                                         gender: "female",
+                                         is_slow: false } } %>
     </div>
 
     <div class="form-group">
@@ -28,17 +31,46 @@
     </div>
 
     <div class="form-group">
+      <%= f.label 'Current slow female audio clip' %>
+      <%= render partial: 'audio_playback',
+                 locals: { audio_clip: { audio_data: @category_item.slow_female_audio_clip,
+                                         gender: "female",
+                                         is_slow: true } } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :slow_female_audio_clip %><br>
+      <%= f.file_field :slow_female_audio_clip, { tabindex: 5 } %>
+    </div>
+
+    <div class="form-group">
       <%= f.label 'Current male audio clip' %>
-      <%= render partial: 'audio_playback', locals: { audio_clip: @category_item.male_audio_clip, gender: "male" } %>
+      <%= render partial: 'audio_playback',
+                 locals: { audio_clip: { audio_data: @category_item.male_audio_clip,
+                                         gender: "male",
+                                         is_slow: false } } %>
     </div>
 
     <div class="form-group">
       <%= f.label :male_audio_clip %><br>
-      <%= f.file_field :male_audio_clip, { tabindex: 5 } %>
+      <%= f.file_field :male_audio_clip, { tabindex: 6 } %>
     </div>
 
     <div class="form-group">
-      <%= f.submit nil, { class: 'btn btn-primary', tabindex: 6 } %>
+      <%= f.label 'Current slow male audio clip' %>
+      <%= render partial: 'audio_playback',
+                 locals: { audio_clip: { audio_data: @category_item.slow_male_audio_clip,
+                                         gender: "male",
+                                         is_slow: true } } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :slow_male_audio_clip %><br>
+      <%= f.file_field :slow_male_audio_clip, { tabindex: 7 } %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit nil, { class: 'btn btn-primary', tabindex: 8 } %>
     </div>
 
 <% end %>

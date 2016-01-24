@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class FemaleAudioClipUploader < CarrierWave::Uploader::Base
+class SlowFemaleAudioClipUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
