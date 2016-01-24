@@ -29,11 +29,15 @@ input[type='password'] {
 }
 
 img#female_play_icon,
-img#male_play_icon {
+img#male_play_icon,
+img#slow_female_play_icon,
+img#slow_male_play_icon {
     width: 20px;
 }
 
 img#female_play_icon:hover,
-img#male_play_icon:hover {
+img#male_play_icon:hover,
+img#slow_female_play_icon:hover,
+img#slow_male_play_icon:hover {
     cursor: pointer;
 }
