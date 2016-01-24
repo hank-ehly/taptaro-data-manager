@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :category_items
   end
 
-  get 'output' => 'application#handle_file_output_request'
+  get 'download' => 'application#handle_file_output_request'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

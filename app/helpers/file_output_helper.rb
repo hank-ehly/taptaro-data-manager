@@ -1,19 +1,21 @@
 module FileOutputHelper
 
-  def output_latest_taptaro_files
+  require 'zip_file_generator'
+
+  # @return [String] Path to exported zip file
+  def get_latest_taptaro_files
     set_current_timestamp
     create_root_dir
+    output_taptaro_files
+    "#{get_root_dir_path}.zip"
+  end
+
+  def output_taptaro_files
     output_categories
     output_category_items
     copy_audio_clips
-    # scp_files_to_local
-  end
-
-  def scp_files_to_local(host="", username="", password="", dest="")
-    Net::SCP.start(host, username, password: password) do |scp|
-      root_dir = get_root_dir_path
-      scp.download(root_dir, dest)
-    end
+    zip_exported_files
+    delete_uncompressed_files
   end
 
   def copy_audio_clips
@@ -68,6 +70,18 @@ module FileOutputHelper
     file = File.open("#{parent_dir}/#{filename}.csv", 'w')
     file.write(records)
     file.close
+  end
+
+  def zip_exported_files
+    directory_to_zip = get_root_dir_path
+    output_file = "#{directory_to_zip}.zip"
+    zip_file_generator = ZipFileGenerator.new(directory_to_zip, output_file)
+    zip_file_generator.write
+  end
+
+  def delete_uncompressed_files
+    root_dir = get_root_dir_path
+    FileUtils.rm_rf(root_dir)
   end
 
   def get_root_dir_path
