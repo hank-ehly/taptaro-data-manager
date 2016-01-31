@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124154826) do
+ActiveRecord::Schema.define(version: 20160131160701) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20160124154826) do
     t.string   "male_audio_clip"
     t.string   "slow_female_audio_clip"
     t.string   "slow_male_audio_clip"
+    t.string   "token"
   end
 
   add_index "category_items", ["category_id"], name: "index_category_items_on_category_id"

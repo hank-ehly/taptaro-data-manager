@@ -13,6 +13,7 @@ gem 'annotate'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rubyzip'
+gem 'has_secure_token'
 
 group :development do
   gem 'capistrano-rails'

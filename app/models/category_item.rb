@@ -14,6 +14,7 @@
 
 class CategoryItem < ActiveRecord::Base
   belongs_to :category
+  has_secure_token
 
   mount_uploader :female_audio_clip, FemaleAudioClipUploader
   mount_uploader :male_audio_clip, MaleAudioClipUploader
@@ -33,7 +34,6 @@ class CategoryItem < ActiveRecord::Base
     end
   end
 
-
   def self.get_play_icon_id_by_audio_clip(audio_clip={})
     get_id_by_type_for_audio_clip('play_icon', audio_clip)
   end
@@ -41,7 +41,6 @@ class CategoryItem < ActiveRecord::Base
   def self.get_audio_clip_id_by_audio_clip(audio_clip={})
     get_id_by_type_for_audio_clip('audio_clip', audio_clip)
   end
-
 
   private
 
