@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'uglifier', '>= 1.3.0'
@@ -14,6 +13,8 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rubyzip'
 gem 'has_secure_token'
+gem 'mysql2'
+gem 'yaml_db'
 
 group :development do
   gem 'capistrano-rails'
