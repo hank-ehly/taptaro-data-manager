@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                      Prefix Verb   URI Pattern                                                Controller#Action
+#               user_messages GET    /user_messages(.:format)                                   user_messages#index
+#                             POST   /user_messages(.:format)                                   user_messages#create
+#            new_user_message GET    /user_messages/new(.:format)                               user_messages#new
+#           edit_user_message GET    /user_messages/:id/edit(.:format)                          user_messages#edit
+#                user_message GET    /user_messages/:id(.:format)                               user_messages#show
+#                             PATCH  /user_messages/:id(.:format)                               user_messages#update
+#                             PUT    /user_messages/:id(.:format)                               user_messages#update
+#                             DELETE /user_messages/:id(.:format)                               user_messages#destroy
 #                        root GET    /                                                          categories#index
 #           new_admin_session GET    /admins/sign_in(.:format)                                  devise/sessions#new
 #               admin_session POST   /admins/sign_in(.:format)                                  devise/sessions#create
@@ -33,10 +41,12 @@
 #                             PATCH  /categories/:id(.:format)                                  categories#update
 #                             PUT    /categories/:id(.:format)                                  categories#update
 #                             DELETE /categories/:id(.:format)                                  categories#destroy
-#                      export GET    /export/:target(.:format)                                  application#export_csv
+#                    download GET    /download(.:format)                                        application#handle_file_output_request
 #
 
 Rails.application.routes.draw do
+
+  resources :user_messages
 
   root 'categories#index'
 

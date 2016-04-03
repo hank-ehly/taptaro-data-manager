@@ -15,6 +15,7 @@ gem 'rubyzip'
 gem 'has_secure_token'
 gem 'mysql2'
 gem 'yaml_db'
+gem 'kaminari'
 
 group :development do
   gem 'capistrano-rails'

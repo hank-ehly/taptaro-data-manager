@@ -2,14 +2,18 @@
 #
 # Table name: category_items
 #
-#  id          :integer          not null, primary key
-#  romaji      :string
-#  kana        :string
-#  title       :string
-#  category_id :integer
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  audio_clip  :string
+#  id                     :integer          not null, primary key
+#  romaji                 :string(255)
+#  kana                   :string(255)
+#  title                  :string(255)
+#  category_id            :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  female_audio_clip      :string(255)
+#  male_audio_clip        :string(255)
+#  slow_female_audio_clip :string(255)
+#  slow_male_audio_clip   :string(255)
+#  token                  :string(255)
 #
 
 class CategoryItem < ActiveRecord::Base

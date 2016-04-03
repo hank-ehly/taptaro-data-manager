@@ -1,0 +1,17 @@
+<h3>Messages</h3>
+<h6><%= page_entries_info @user_messages, :entry_name => 'message' %></h6>
+
+<% if @user_messages.any? %>
+    <%= paginate @user_messages %>
+    <ul class="list-group">
+      <% @user_messages.each do |m| %>
+          <li class="list-group-item">
+            <h6 class="list-group-item-heading"><%= m.created_at.strftime("%B %d, %Y") %></h6>
+
+            <p class="list-group-item-text">"<%= m.message %>"</p>
+          </li>
+      <% end %>
+    </ul>
+<% else %>
+    <p>Sorry, there are no messages available at this time.</p>
+<% end %>
