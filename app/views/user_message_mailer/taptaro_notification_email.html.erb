@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+    <h3>Message sent on <%= @message.created_at.strftime("%B %d, %Y") %></h3>
+    <p>"<%= @message.message %>"</p>
+</body>
+</html>
