@@ -46,11 +46,11 @@
 
 Rails.application.routes.draw do
 
-  resources :user_messages
+  resources :user_messages, only: [:create]
 
   root 'categories#index'
 
-  devise_for :admins
+  devise_for :admins, only: [:sign_in, :sign_out, :session]
 
   resources :categories do
     resources :category_items

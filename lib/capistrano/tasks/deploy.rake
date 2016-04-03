@@ -16,13 +16,4 @@ namespace :deploy do
 
   end
 
-  desc "Restart passenger via `touch tmp/restart.txt`"
-  task :restart_passenger do
-    on roles(:app) do
-      execute "touch tmp/restart.txt"
-    end
-  end
-
-  after "deploy", "deploy:restart_passenger"
-
 end
