@@ -51,7 +51,6 @@
 # ------------------------------------
 server ENV['SAKURAIP'],
   user: ENV['SAKURAUSER'],
-  port: ENV['SAKURAPORT'],
   roles: %w{web app},
   ssh_options: {
     # user: 'user_name', # overrides user setting above
