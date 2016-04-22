@@ -56,6 +56,6 @@ server ENV['SAKURAIP'],
     # user: 'user_name', # overrides user setting above
     keys: %w(/User/henryehly/.ssh/sakura/id_rsa_sakura.pub),
     # forward_agent: false,
-    # auth_methods: %w(publickey password)
+    auth_methods: %w(publickey)
     # password: ENV['SAKURAPASSWORD']
   }
