@@ -2,6 +2,7 @@ class CategoryItemsController < ApplicationController
 
   before_action :set_category
   before_action :set_category_item, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!
 
   def index
     @category_items = CategoryItem.where(category_id: params[:id])

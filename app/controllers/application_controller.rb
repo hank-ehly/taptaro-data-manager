@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_admin!
+
+  before_action :authenticate_admin!, only: [:handle_file_output_request, :download_to_local]
 
   include FileOutputHelper
 
