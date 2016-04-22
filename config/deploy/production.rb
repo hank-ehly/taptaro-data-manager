@@ -54,8 +54,8 @@ server ENV['SAKURAIP'],
   roles: %w{web app},
   ssh_options: {
     # user: 'user_name', # overrides user setting above
-    # keys: %w(/home/user_name/.ssh/id_rsa),
+    keys: %w(/User/henryehly/.ssh/sakura/id_rsa_sakura.pub),
     # forward_agent: false,
     # auth_methods: %w(publickey password)
-    password: ENV['SAKURAPASSWORD']
+    # password: ENV['SAKURAPASSWORD']
   }
