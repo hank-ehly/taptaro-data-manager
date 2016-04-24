@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    @user_messages = UserMessage.all.order("created_at").page(params[:page]).per(5)
+    @user_messages = UserMessage.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show
