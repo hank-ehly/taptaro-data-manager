@@ -25,9 +25,9 @@ class CategoryItem < ActiveRecord::Base
   mount_uploader :slow_female_audio_clip, SlowFemaleAudioClipUploader
   mount_uploader :slow_male_audio_clip, SlowMaleAudioClipUploader
 
-  validates :romaji, presence: true, length: { maximum: 25 }
-  validates :kana, presence: true, length: { maximum: 25 }
-  validates :title, presence: true, length: { maximum: 25 }
+  validates :romaji, presence: true, length: { maximum: 50 }
+  validates :kana, presence: true, length: { maximum: 50 }
+  validates :title, presence: true, length: { maximum: 50 }
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
