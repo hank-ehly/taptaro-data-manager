@@ -20,5 +20,7 @@ gem 'kaminari'
 group :development do
   gem 'capistrano-rails'
   gem 'spring'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger'
 end
 
