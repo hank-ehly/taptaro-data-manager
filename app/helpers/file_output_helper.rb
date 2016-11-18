@@ -56,12 +56,12 @@ module FileOutputHelper
   end
 
   def output_categories
-    categories = Category.all.to_csv
+    categories = Category.all.to_csv(:col_sep => "\t")
     output_csv_records_to_filename(categories, "categories")
   end
 
   def output_category_items
-    category_items = CategoryItem.all.to_csv
+    category_items = CategoryItem.all.to_csv(:col_sep => "\t")
     output_csv_records_to_filename(category_items, "category_items")
   end
 
