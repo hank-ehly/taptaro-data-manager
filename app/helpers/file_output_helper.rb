@@ -2,7 +2,6 @@ module FileOutputHelper
 
   require 'zip_file_generator'
 
-  # @return [String] Path to exported zip file
   def get_latest_taptaro_files
     set_current_timestamp
     create_root_dir
@@ -56,13 +55,13 @@ module FileOutputHelper
   end
 
   def output_categories
-    categories = Category.all.to_csv(:col_sep => "\t")
-    output_csv_records_to_filename(categories, "categories")
+    categories = Category.all.to_csv(col_sep: "\t")
+    output_csv_records_to_filename(categories, 'categories')
   end
 
   def output_category_items
-    category_items = CategoryItem.all.to_csv(:col_sep => "\t")
-    output_csv_records_to_filename(category_items, "category_items")
+    category_items = CategoryItem.all.to_csv(col_sep: "\t")
+    output_csv_records_to_filename(category_items, 'category_items')
   end
 
   def output_csv_records_to_filename(records, filename)
