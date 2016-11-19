@@ -13,31 +13,30 @@
  *= require_tree .
  *= require_self
  */
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 input[type='text'],
 input[type='email'],
 input[type='password'] {
-    max-width: 300px;
+  max-width: 300px;
 }
 
 .navbar-brand img {
-    max-width: 30px;
-    margin-top: 4px;
+  max-width: 30px;
+  margin-top: 4px;
 }
 
 img#female_play_icon,
 img#male_play_icon,
 img#slow_female_play_icon,
 img#slow_male_play_icon {
-    width: 20px;
+  width: 20px;
 }
 
 img#female_play_icon:hover,
 img#male_play_icon:hover,
 img#slow_female_play_icon:hover,
 img#slow_male_play_icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
