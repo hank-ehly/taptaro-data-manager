@@ -31,7 +31,7 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
-  devise_for :admins, only: [:sign_in, :sign_out, :session]
+  devise_for :admins
 
   resources :categories do
     resources :category_items
