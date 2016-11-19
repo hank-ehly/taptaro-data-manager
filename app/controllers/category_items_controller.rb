@@ -5,7 +5,7 @@ class CategoryItemsController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @category_items = CategoryItem.where(category_id: params[:id])
+    @category_items = CategoryItem.where(category_id: params[:id]).order(position: :asc)
   end
 
   def show
@@ -20,6 +20,7 @@ class CategoryItemsController < ApplicationController
 
   def create
     @category_item = @category.category_items.new(category_item_params)
+    @category_item.position = next_available_pos
     if @category_item.save
       flash[:success] = 'Category item was successfully created.'
       redirect_to @category
@@ -43,6 +44,13 @@ class CategoryItemsController < ApplicationController
     redirect_to @category
   end
 
+  def sort
+    params[:order].each do |key, value|
+      CategoryItem.find(value[:id]).update_attribute(:position, value[:position])
+    end
+    render :nothing => true
+  end
+
   private
 
   def set_category
@@ -61,7 +69,16 @@ class CategoryItemsController < ApplicationController
                                           :female_audio_clip,
                                           :slow_female_audio_clip,
                                           :male_audio_clip,
-                                          :slow_male_audio_clip)
+                                          :slow_male_audio_clip,
+                                          :position)
+  end
+
+  def next_available_pos
+    pos_arr = Array.new
+    CategoryItem.all.each do |c|
+      pos_arr << c.position
+    end
+    return pos_arr.blank? ? 0 : pos_arr.max + 1
   end
 
 end

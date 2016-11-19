@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @categories = Category.all
+    @categories = Category.all.order(position: :asc)
     @user_messages = UserMessage.all.order(created_at: :desc).page(params[:page]).per(5)
   end
 
@@ -21,6 +21,8 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
+    @carousel_image.position = next_available_pos
+
     if @category.save
       flash[:success] = 'Category was successfully created.'
       redirect_to @category
@@ -45,6 +47,13 @@ class CategoriesController < ApplicationController
     redirect_to categories_url
   end
 
+  def sort
+    params[:order].each do |key, value|
+      Category.find(value[:id]).update_attribute(:position, value[:position])
+    end
+    render :nothing => true
+  end
+
   private
 
   def set_category
@@ -52,7 +61,15 @@ class CategoriesController < ApplicationController
   end
 
   def category_params
-    params.require(:category).permit(:title)
+    params.require(:category).permit(:title, :position)
+  end
+
+  def next_available_pos
+    pos_arr = Array.new
+    Category.all.each do |c|
+      pos_arr << c.position
+    end
+    return pos_arr.blank? ? 0 : pos_arr.max + 1
   end
 
 end
