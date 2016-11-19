@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403064131) do
+ActiveRecord::Schema.define(version: 20161119115612) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20160403064131) do
     t.string   "title",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "position",   limit: 4
   end
 
   create_table "category_items", force: :cascade do |t|
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160403064131) do
     t.string   "slow_female_audio_clip", limit: 255
     t.string   "slow_male_audio_clip",   limit: 255
     t.string   "token",                  limit: 255
+    t.integer  "position",               limit: 4
   end
 
   add_index "category_items", ["category_id"], name: "index_category_items_on_category_id", using: :btree
