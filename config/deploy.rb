@@ -2,7 +2,7 @@
 lock '3.4.0'
 
 set :application, 'taptaro_data_manager'
-set :repo_url, 'git@gitlab.com:hank.ehly/taptaro_data_manager.git'
+set :repo_url, 'git@taptaro_data_manager.github.com:hank-ehly/taptaro-data-manager.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

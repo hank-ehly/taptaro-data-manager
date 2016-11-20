@@ -21,7 +21,7 @@ end
 
 group :development do
     gem 'spring'
-    gem 'capistrano'
+    gem 'capistrano', '3.4.0'
     gem 'capistrano-rails'
     gem 'capistrano-bundler'
     gem 'capistrano-passenger'
