@@ -4,8 +4,8 @@
     <% play_icon_id = CategoryItem.get_play_icon_id_by_audio_clip(audio_clip) %>
     <% audio_clip_id = CategoryItem.get_audio_clip_id_by_audio_clip(audio_clip) %>
 
-    <%= image_tag 'play_icon.png', :id => play_icon_id %>
-    <audio id=<%= audio_clip_id %> src="<%= audio_clip[:audio_data] %>">
+    <audio id=<%= audio_clip_id %> controls preload="auto">
+        <source src="<%= audio_clip[:audio_data] %>" type="audio/aac">
         Your computer does not support audio playback.
     </audio>
 <% end %>

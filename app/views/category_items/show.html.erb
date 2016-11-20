@@ -1,24 +1,24 @@
-<p>
+<p class="category_item_row">
   <strong>Romaji:</strong>
   <%= @category_item.romaji %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Kana:</strong>
   <%= @category_item.kana %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Title:</strong>
   <%= @category_item.title %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Parent category:</strong>
   <%= @category_item.category.title %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Female Audio Clip</strong>
   <%= render partial: 'audio_playback',
              locals: { audio_clip: { audio_data: @category_item.female_audio_clip,
@@ -26,7 +26,7 @@
                                      is_slow: false } } %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Slow Female Audio Clip</strong>
   <%= render partial: 'audio_playback',
              locals: { audio_clip: { audio_data: @category_item.slow_female_audio_clip,
@@ -34,7 +34,7 @@
                                      is_slow: true } } %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Male Audio Clip</strong>
   <%= render partial: 'audio_playback',
              locals: { audio_clip: { audio_data: @category_item.male_audio_clip,
@@ -42,7 +42,7 @@
                                      is_slow: false } } %>
 </p>
 
-<p>
+<p class="category_item_row">
   <strong>Slow Male Audio Clip</strong>
   <%= render partial: 'audio_playback',
              locals: { audio_clip: { audio_data: @category_item.slow_male_audio_clip,
