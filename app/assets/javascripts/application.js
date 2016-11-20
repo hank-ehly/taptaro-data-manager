@@ -58,9 +58,9 @@ $(document).on('turbolinks:load', function () {
         };
     }
 
-    function sortUpdate() {
-        console.log('sortUpdate()');
+    var $sortable = $('.sortable');
 
+    function sortUpdate() {
         var updated_order = [];
         set_positions();
 
@@ -71,20 +71,30 @@ $(document).on('turbolinks:load', function () {
             });
         });
 
-        var SORT_URL = '/categories/sort';
+        var url = '';
+        if ($sortable.data('category_id')) {
+            url = '/categories/' + $sortable.data('category_id') + '/category_items/sort';
+        } else {
+            url = '/categories/sort';
+        }
+
+        if (url === '') {
+            console.error('Something went wrong.', url, $sortable);
+            return;
+        }
 
         $.ajax({
-            type: "PUT",
-            url: SORT_URL,
+            type: 'PUT',
+            url: url,
             data: {order: updated_order}
         });
     }
 
-    $('.sortable').sortable().bind('sortupdate', sortUpdate);
+    $sortable.sortable().bind('sortupdate', sortUpdate);
 
     var set_positions = function () {
         $('.draggable').each(function (i) {
-            $(this).attr("data-pos", i + 1);
+            $(this).attr('data-pos', i + 1);
         });
     };
 

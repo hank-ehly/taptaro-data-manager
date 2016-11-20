@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
-        @category_items = CategoryItem.where(category_id: params[:id])
+        @category_items = CategoryItem.where(category_id: params[:id]).order(position: :asc)
     end
 
     def new
@@ -49,7 +49,6 @@ class CategoriesController < ApplicationController
 
     def sort
         params[:order].each do |key, value|
-            puts "******* #{value}"
             Category.find(value[:id]).update_attribute(:position, value[:position])
         end
         render :nothing => true

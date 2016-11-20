@@ -46,6 +46,7 @@ class CategoryItemsController < ApplicationController
 
     def sort
         params[:order].each do |key, value|
+            puts "********** #{value}"
             CategoryItem.find(value[:id]).update_attribute(:position, value[:position])
         end
         render :nothing => true

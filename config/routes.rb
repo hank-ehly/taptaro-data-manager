@@ -34,11 +34,9 @@ Rails.application.routes.draw do
     devise_for :admins
 
     resources :categories do
-        resources :category_items
-        put :sort, on: :collection
-    end
-
-    resources :category_items do
+        resources :category_items do
+            put :sort, on: :collection
+        end
         put :sort, on: :collection
     end
 

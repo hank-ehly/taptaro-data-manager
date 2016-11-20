@@ -1,10 +1,11 @@
 <h3>Listing Category Items for '<%= @category.title %>'
-  <small><%= link_to '+ New Category item', new_category_category_item_path(@category.id), { tabindex: 1 } %></small>
+  <small><%= link_to '+ New Category item', new_category_category_item_path(@category.id), {tabindex: 1} %></small>
 </h3>
 
-<table class="table">
+<table class="table table-striped table-bordered">
   <thead>
   <tr>
+    <th></th>
     <th>Title</th>
     <th>Kana</th>
     <th>Romaji</th>
@@ -13,15 +14,16 @@
   </tr>
   </thead>
 
-  <tbody>
+  <tbody class="sortable" data-category_id="<%= @category.id %>">
   <% @category_items.each do |category_item| %>
-      <tr>
-        <td><%= link_to category_item.title, category_category_item_path(@category.id, category_item) %></td>
-        <td><%= category_item.kana %></td>
-        <td><%= category_item.romaji %></td>
-        <td><%= link_to 'Edit', edit_category_category_item_path(@category.id, category_item) %></td>
-        <td><%= link_to 'Destroy', category_category_item_path(@category.id, category_item), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
+          <tr class="draggable" data-id="<%= category_item.id %>">
+            <td class="td-drag-icon"><span class="glyphicon glyphicon-move"></span></td>
+            <td><%= link_to category_item.title, category_category_item_path(@category.id, category_item) %></td>
+            <td><%= category_item.kana %></td>
+            <td><%= category_item.romaji %></td>
+            <td><%= link_to 'Edit', edit_category_category_item_path(@category.id, category_item) %></td>
+            <td><%= link_to 'Destroy', category_category_item_path(@category.id, category_item), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
   <% end %>
   </tbody>
 </table>
