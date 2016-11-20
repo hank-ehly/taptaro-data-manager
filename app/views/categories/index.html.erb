@@ -2,21 +2,23 @@
   <small><%= link_to '+ New Category', new_category_path %></small>
 </h3>
 
-<table class="table">
+<table class="table table-striped table-bordered">
   <thead>
   <tr>
+    <th></th>
     <th>Title (no. items)</th>
     <th>Options</th>
     <th></th>
   </tr>
   </thead>
-  <tbody>
+  <tbody class="sortable">
   <% @categories.each do |category| %>
-      <tr>
-        <td><%= link_to category.title + ' (' + category.category_items.count.to_s + ')', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
-      </tr>
+          <tr class="draggable" data-id="<%= category.id %>">
+            <td class="td-drag-icon"><span class="glyphicon glyphicon-move"></span></td>
+            <td><%= link_to category.title + ' (' + category.category_items.count.to_s + ')', category %></td>
+            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
   <% end %>
   </tbody>
 </table>

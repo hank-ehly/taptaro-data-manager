@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
 
-$(document).on('page:load', function () {
+$(document).on('turbolinks:load', function () {
+
     var y = {
         female: {
             audio_clip: document.getElementById('female_audio_clip'),
@@ -37,11 +38,11 @@ $(document).on('page:load', function () {
     };
 
     for (var x in y) {
-        if (!x) continue;
+        if (!x.audio_clip) continue;
 
         var icon = $(x.iconSelector);
         icon.on('click', function () {
-            if (x.audio_clip) x.audio_clip.play();
+            x.audio_clip.play();
         });
 
         x.audio_clip.onplaying = function () {
@@ -56,4 +57,36 @@ $(document).on('page:load', function () {
             $(x.audio_clip).prop('disabled', !shouldEnable);
         };
     }
+
+    function sortUpdate() {
+        console.log('sortUpdate()');
+
+        var updated_order = [];
+        set_positions();
+
+        $('.draggable').each(function (i) {
+            updated_order.push({
+                id: $(this).data('id'),
+                position: i + 1
+            });
+        });
+
+        var SORT_URL = '/categories/sort';
+
+        $.ajax({
+            type: "PUT",
+            url: SORT_URL,
+            data: {order: updated_order}
+        });
+    }
+
+    $('.sortable').sortable().bind('sortupdate', sortUpdate);
+
+    var set_positions = function () {
+        $('.draggable').each(function (i) {
+            $(this).attr("data-pos", i + 1);
+        });
+    };
+
+    set_positions();
 });

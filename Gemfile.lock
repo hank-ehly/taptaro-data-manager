@@ -184,7 +184,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.4)
   capistrano
   capistrano-bundler
   capistrano-passenger
