@@ -9,9 +9,7 @@
 
       <% unless current_admin.nil? %>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Download', download_path,
-                            'data-confirm' => 'Press OK to download latest taptaro files.',
-                            'data-no-turbolink' => true %></li>
+            <li><%= link_to 'Export', download_path, 'data-confirm' => 'Press OK to download latest taptaro files.', 'data-no-turbolink' => true %></li>
             <li><%= link_to 'Logout', destroy_admin_session_path, method: :delete %></li>
           </ul>
       <% end %>

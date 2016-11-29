@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
     include FileOutputHelper
 
     def handle_file_output_request
-        output_path = get_latest_taptaro_files
-        download_to_local(output_path)
+        get_latest_taptaro_files
+        # download_to_local(output_path)
+        redirect_to root_path
     end
 
     def download_to_local(path='')
